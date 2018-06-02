@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="mainModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="Data Source=dataset.db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cases">
+          <Key>
+            <PropertyRef Name="CaseID" />
+          </Key>
+          <Property Name="CaseID" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="AttorneySerialNum" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="ClientSerialNum" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="ApplicationNum" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="EntrustDate" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="SalesmanName" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="ClientName" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="TechdocumentName" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="CasedocumentName" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="ExtraInfo" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="ApplicationType" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="ApplicationStatus" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="ApplicationDate" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="SuitFlag" Type="integer" />
+        </EntityType>
+        <EntityType Name="staff">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Account" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="ProfessionDate" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="电话" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="邮箱" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="分公司" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="部门" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="组别" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="在职状态" Type="integer" />
+          <Property Name="入职时间" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="职业经历" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="Tasks">
+          <Key>
+            <PropertyRef Name="TaskID" />
+          </Key>
+          <Property Name="TaskID" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="TaskName" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="TaskAttribute" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="TaskCatogry" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="Attorney" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="DistributeDate" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="FirstVirsionDeadlineInternal" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="FirstVirsionDeadlineOutside" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="FirstVirsionDate" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="DoneDeadlineInternal" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="DoneDeadlineOutside" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="OfficalDeadline" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="DoneDate" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="ProcessStage" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="TaskStatus" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="CaseID" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="mainModelStoreContainer">
+          <EntitySet Name="Cases" EntityType="Self.Cases" store:Type="Tables" />
+          <EntitySet Name="staff" EntityType="Self.staff" store:Type="Tables" />
+          <EntitySet Name="Tasks" EntityType="Self.Tasks" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="mainModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="staff">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Account" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProfessionDate" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="电话" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="邮箱" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="分公司" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="部门" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="组别" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="在职状态" Type="Int64" />
+          <Property Name="入职时间" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="职业经历" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="mainEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="staffs" EntityType="Self.staff" />
+          <EntitySet Name="Cases" EntityType="mainModel.Case" />
+          <EntitySet Name="Tasks" EntityType="mainModel.Task" />
+        </EntityContainer>
+        <EntityType Name="Case">
+          <Key>
+            <PropertyRef Name="CaseID" />
+          </Key>
+          <Property Name="CaseID" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="AttorneySerialNum" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="ClientSerialNum" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationNum" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="EntrustDate" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="SalesmanName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="ClientName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="TechdocumentName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="CasedocumentName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="ExtraInfo" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationType" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationStatus" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationDate" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="SuitFlag" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Task">
+          <Key>
+            <PropertyRef Name="TaskID" />
+          </Key>
+          <Property Name="TaskID" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="TaskName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="TaskAttribute" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="TaskCatogry" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="Attorney" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="DistributeDate" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="FirstVirsionDeadlineInternal" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="FirstVirsionDeadlineOutside" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="FirstVirsionDate" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="DoneDeadlineInternal" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="DoneDeadlineOutside" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="OfficalDeadline" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="DoneDate" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="ProcessStage" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="TaskStatus" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="CaseID" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="mainModelStoreContainer" CdmEntityContainer="mainEntities">
+          <EntitySetMapping Name="staffs">
+            <EntityTypeMapping TypeName="mainModel.staff">
+              <MappingFragment StoreEntitySet="staff">
+                <ScalarProperty Name="职业经历" ColumnName="职业经历" />
+                <ScalarProperty Name="入职时间" ColumnName="入职时间" />
+                <ScalarProperty Name="在职状态" ColumnName="在职状态" />
+                <ScalarProperty Name="组别" ColumnName="组别" />
+                <ScalarProperty Name="部门" ColumnName="部门" />
+                <ScalarProperty Name="分公司" ColumnName="分公司" />
+                <ScalarProperty Name="邮箱" ColumnName="邮箱" />
+                <ScalarProperty Name="电话" ColumnName="电话" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="ProfessionDate" ColumnName="ProfessionDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cases">
+            <EntityTypeMapping TypeName="mainModel.Case">
+              <MappingFragment StoreEntitySet="Cases">
+                <ScalarProperty Name="SuitFlag" ColumnName="SuitFlag" />
+                <ScalarProperty Name="ApplicationDate" ColumnName="ApplicationDate" />
+                <ScalarProperty Name="ApplicationStatus" ColumnName="ApplicationStatus" />
+                <ScalarProperty Name="ApplicationType" ColumnName="ApplicationType" />
+                <ScalarProperty Name="ExtraInfo" ColumnName="ExtraInfo" />
+                <ScalarProperty Name="CasedocumentName" ColumnName="CasedocumentName" />
+                <ScalarProperty Name="TechdocumentName" ColumnName="TechdocumentName" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="SalesmanName" ColumnName="SalesmanName" />
+                <ScalarProperty Name="EntrustDate" ColumnName="EntrustDate" />
+                <ScalarProperty Name="ApplicationNum" ColumnName="ApplicationNum" />
+                <ScalarProperty Name="ClientSerialNum" ColumnName="ClientSerialNum" />
+                <ScalarProperty Name="AttorneySerialNum" ColumnName="AttorneySerialNum" />
+                <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tasks">
+            <EntityTypeMapping TypeName="mainModel.Task">
+              <MappingFragment StoreEntitySet="Tasks">
+                <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+                <ScalarProperty Name="TaskStatus" ColumnName="TaskStatus" />
+                <ScalarProperty Name="ProcessStage" ColumnName="ProcessStage" />
+                <ScalarProperty Name="DoneDate" ColumnName="DoneDate" />
+                <ScalarProperty Name="OfficalDeadline" ColumnName="OfficalDeadline" />
+                <ScalarProperty Name="DoneDeadlineOutside" ColumnName="DoneDeadlineOutside" />
+                <ScalarProperty Name="DoneDeadlineInternal" ColumnName="DoneDeadlineInternal" />
+                <ScalarProperty Name="FirstVirsionDate" ColumnName="FirstVirsionDate" />
+                <ScalarProperty Name="FirstVirsionDeadlineOutside" ColumnName="FirstVirsionDeadlineOutside" />
+                <ScalarProperty Name="FirstVirsionDeadlineInternal" ColumnName="FirstVirsionDeadlineInternal" />
+                <ScalarProperty Name="DistributeDate" ColumnName="DistributeDate" />
+                <ScalarProperty Name="Attorney" ColumnName="Attorney" />
+                <ScalarProperty Name="TaskCatogry" ColumnName="TaskCatogry" />
+                <ScalarProperty Name="TaskAttribute" ColumnName="TaskAttribute" />
+                <ScalarProperty Name="TaskName" ColumnName="TaskName" />
+                <ScalarProperty Name="TaskID" ColumnName="TaskID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

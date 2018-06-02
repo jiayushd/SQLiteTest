@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mainModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="Data Source=dataset.db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cases">
+    <Key>
+      <PropertyRef Name="CaseID" />
+    </Key>
+    <Property Name="CaseID" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="AttorneySerialNum" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="ClientSerialNum" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="ApplicationNum" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="EntrustDate" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="SalesmanName" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="ClientName" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="TechdocumentName" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="CasedocumentName" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="ExtraInfo" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="ApplicationType" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="ApplicationStatus" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="ApplicationDate" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="SuitFlag" Type="integer" />
+  </EntityType>
+  <EntityType Name="staff">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Account" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="ProfessionDate" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="电话" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="邮箱" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="分公司" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="部门" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="组别" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="在职状态" Type="integer" />
+    <Property Name="入职时间" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="职业经历" Type="nvarchar" MaxLength="2147483647" />
+  </EntityType>
+  <EntityType Name="Tasks">
+    <Key>
+      <PropertyRef Name="TaskID" />
+    </Key>
+    <Property Name="TaskID" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="TaskName" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="TaskAttribute" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="TaskCatogry" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="Attorney" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="DistributeDate" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="FirstVirsionDeadlineInternal" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="FirstVirsionDeadlineOutside" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="FirstVirsionDate" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="DoneDeadlineInternal" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="DoneDeadlineOutside" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="OfficalDeadline" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="DoneDate" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="ProcessStage" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="TaskStatus" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="CaseID" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="mainModelStoreContainer">
+    <EntitySet Name="Cases" EntityType="Self.Cases" store:Type="Tables" />
+    <EntitySet Name="staff" EntityType="Self.staff" store:Type="Tables" />
+    <EntitySet Name="Tasks" EntityType="Self.Tasks" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

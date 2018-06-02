@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mainModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="staff">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Account" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProfessionDate" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="电话" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="邮箱" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="分公司" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="部门" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="组别" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="在职状态" Type="Int64" />
+    <Property Name="入职时间" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="职业经历" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="mainEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="staffs" EntityType="Self.staff" />
+    <EntitySet Name="Cases" EntityType="mainModel.Case" />
+    <EntitySet Name="Tasks" EntityType="mainModel.Task" />
+  </EntityContainer>
+  <EntityType Name="Case">
+    <Key>
+      <PropertyRef Name="CaseID" />
+    </Key>
+    <Property Name="CaseID" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="AttorneySerialNum" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="ClientSerialNum" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="ApplicationNum" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="EntrustDate" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="SalesmanName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="ClientName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="TechdocumentName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="CasedocumentName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="ExtraInfo" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="ApplicationType" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="ApplicationStatus" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="ApplicationDate" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="SuitFlag" Type="Int64" />
+  </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="TaskID" />
+    </Key>
+    <Property Name="TaskID" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="TaskName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="TaskAttribute" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="TaskCatogry" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Attorney" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="DistributeDate" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="FirstVirsionDeadlineInternal" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="FirstVirsionDeadlineOutside" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="FirstVirsionDate" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="DoneDeadlineInternal" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="DoneDeadlineOutside" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="OfficalDeadline" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="DoneDate" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="ProcessStage" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="TaskStatus" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="CaseID" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

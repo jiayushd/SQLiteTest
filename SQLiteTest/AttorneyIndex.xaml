@@ -1,0 +1,147 @@
+﻿<Window x:Class="WorkAssist.SubWindows.AttorneyIndex"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WorkAssist.SubWindows"
+        mc:Ignorable="d"
+        Title="AttorneyIndex" Height="800" Width="1000" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="330"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TreeView x:Name="memberTree"  Grid.RowSpan="2" SelectedItemChanged="MemberTree_SelectedItemChanged">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                    <TextBlock Text="{Binding Path= Name}"/>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="2">
+            <GroupBox FontSize="14">
+                <GroupBox.Header>
+                    <TextBlock Text="数据范围" Style="{StaticResource txtblkGroupBoxHeaderStyle}"/>
+                </GroupBox.Header>
+                <WrapPanel>
+                    <TextBlock Text="人员范围:" Style="{StaticResource txtblkHeaderStyle}" />
+                    <TextBlock x:Name="txtblkMemberScope" Text="{Binding ElementName=memberTree,Path=SelectedItem.Name}" Width="60" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </WrapPanel>
+            </GroupBox>
+            <GroupBox FontSize="14">
+                <GroupBox.Header>
+                    <TextBlock Text="案件情况" FontSize="18" FontWeight="UltraBold" Foreground="OrangeRed"/>
+                </GroupBox.Header>
+                <GroupBox.Content>
+                    <WrapPanel x:Name="spStatus" Style="{StaticResource wpStyle }">
+                        <TextBlock Text="国内：" Style="{StaticResource txtblkHeaderStyle}"/>
+                        <TextBlock x:Name="txtblkCN" Text="{Binding Path=IntCN}" Style="{StaticResource txtblkDataStyle}" MouseDown="TxtblkCN_MouseDown"/>
+                        <TextBlock Text="涉外：" Style="{StaticResource txtblkHeaderStyle}"/>
+                        <TextBlock x:Name="txtblkForeign" Text="{Binding Path=IntForeign}" Style="{StaticResource txtblkDataStyle}" MouseDown="TxtblkForeign_MouseDown"/>
+                        <TextBlock Text="可处理：" Style="{StaticResource txtblkHeaderStyle}"/>
+                        <TextBlock x:Name="txtblkTodo" Text="{Binding Path=IntTodo}" Style="{StaticResource txtblkDataStyle}" MouseDown="TxtblkTodo_MouseDown"/>
+                        <TextBlock Text="初稿：" Style="{StaticResource txtblkHeaderStyle}"/>
+                        <TextBlock x:Name="txtblkFirstVirsion" Text="{Binding Path=IntFirstVirsion}" Style="{StaticResource txtblkDataStyle}" MouseDown="TxtblkFirstVirsion_MouseDown"/>
+                        <TextBlock Text="OA总数：" Style="{StaticResource txtblkHeaderStyle}"/>
+                        <TextBlock x:Name="txtblkAllOA" Text="{Binding Path=IntAllOA}" Style="{StaticResource txtblkDataStyle}" MouseDown="TxtblkAllOA_MouseDown"/>
+                        <TextBlock Text="30天内OA："  Style="{StaticResource txtblkHeaderStyle}"/>
+                        <TextBlock x:Name="txtblkOAin30" Text="{Binding Path=IntOAin30}" Style="{StaticResource txtblkDataStyle}" MouseDown="TxtblkOAin30_MouseDown"/>
+                    </WrapPanel>                    
+                </GroupBox.Content>
+            </GroupBox>
+            <GroupBox  FontSize="14">
+                <GroupBox.Header>
+                    <TextBlock Text="数据指标" Style="{StaticResource txtblkGroupBoxHeaderStyle}"/>
+                </GroupBox.Header>
+                <StackPanel x:Name="spIndex">
+                    <WrapPanel>
+                        <TextBlock Text="起始日期：" Style="{StaticResource txtblkHeaderStyle}"/>
+                        <DatePicker x:Name="dpStart" />
+                        <TextBlock Text="终止日期：" Style="{StaticResource txtblkHeaderStyle}"/>
+                        <DatePicker x:Name="dpEnd" />
+                    </WrapPanel>
+                    <WrapPanel  Style="{StaticResource wpStyle }">
+                        <TextBlock Text="经手所有案件：" Style="{StaticResource txtblkHeaderStyle}"/>
+                        <TextBlock x:Name="txtblkNumofHandled" Text="{Binding Path=NumofHandled}" Style="{StaticResource txtblkDataStyle}" MouseDown="TxtblkNumofHandled_MouseDown"/>                        
+                    </WrapPanel>
+                    <WrapPanel Style="{StaticResource wpStyle }">
+                        <TextBlock Text="经手超期案件：" Style="{StaticResource txtblkHeaderStyle}"/>
+                        <TextBlock x:Name="txtblkNumofExceedlimit" Text="{Binding Path=NumofExceedlimit}" Style="{StaticResource txtblkDataStyle}" MouseDown="TxtblkNumofExceedlimit_MouseDown" />
+                        <TextBlock Text="超期天数：" Style="{StaticResource txtblkHeaderStyle}"/>
+                        <TextBlock x:Name="txtblkDaysofExceedlimit" Text="{Binding Path=DaysofExceedlimit}" Style="{StaticResource txtblkDataStyle}" Width="70" />
+                        <TextBlock Text="超期率：" Style="{StaticResource txtblkHeaderStyle}"/>
+                        <TextBlock Text="{Binding Path=PercentofExceed, StringFormat={}{0:P1}}" Style="{StaticResource txtblkDataStyle}" Width="50"/>
+                    </WrapPanel>
+                    <WrapPanel Style="{StaticResource wpStyle }">
+                        <TextBlock Text="超客户期案件：" Style="{StaticResource txtblkHeaderStyle}"/>
+                        <TextBlock x:Name="txtblkNumofExceedOutsidelimit" Text="{Binding Path=NumofExceedOutsidelimit}" Style="{StaticResource txtblkDataStyle}" MouseDown="TxtblkNumofExceedlimit_MouseDown" />
+                        <TextBlock Text="超期天数：" Style="{StaticResource txtblkHeaderStyle}"/>
+                        <TextBlock x:Name="txtblkDaysofExceedOutsidelimit" Text="{Binding Path=DaysofExceedOutsidelimit}" Style="{StaticResource txtblkDataStyle}" Width="70" />
+                        <TextBlock Text="超期率：" Style="{StaticResource txtblkHeaderStyle}"/>
+                        <TextBlock Text="{Binding Path=PercentofExceedOutside, StringFormat={}{0:P1}}" Style="{StaticResource txtblkDataStyle}" Width="50"/>
+                    </WrapPanel>
+                    <WrapPanel Style="{StaticResource wpStyle }">
+                        <TextBlock Text="初稿总权值：" Style="{StaticResource txtblkHeaderStyle}"/>
+                        <TextBlock x:Name="txtblkFirstVirsionWeight" Text="{Binding Path=FirstVirsionWeight}" Style="{StaticResource txtblkDataStyle}" Width="43" MouseDown="TxtblkFirstVirsionWeight_MouseDown"/>
+                        <TextBlock Text="递交总权值：" Style="{StaticResource txtblkHeaderStyle}"/>
+                        <TextBlock x:Name="txtblkDoneWeight" Text="{Binding Path=DoneWeight}" Style="{StaticResource txtblkDataStyle}" Width="45" MouseDown="TxtblkDoneWeight_MouseDown"/>
+
+                        <TextBlock Text="完成OA数量：" Style="{StaticResource txtblkHeaderStyle}"/>
+                        <TextBlock x:Name="txtblkNumofDoneOA" Text="{Binding Path=NumofDoneOA}" Style="{StaticResource txtblkDataStyle}" Width="38" MouseDown="TxtblkNumofDoneOA_MouseDown"/>
+                        <TextBlock Text="完成分：" Style="{StaticResource txtblkHeaderStyle}"/>
+                        <TextBlock x:Name="tb1" Text="" Style="{StaticResource txtblkDataStyle}"/>
+                    </WrapPanel>
+                    <WrapPanel Style="{StaticResource wpStyle }">
+                        <TextBlock Text="审核总权值：" Style="{StaticResource txtblkHeaderStyle}"/>
+                        <TextBlock x:Name="txtblkCheckWeight" Text="未统计" Style="{StaticResource txtblkDataStyle}" Width="43" MouseDown="TxtblkDoneWeight_MouseDown"/>
+                        <TextBlock Text="审核新人权值：" Style="{StaticResource txtblkHeaderStyle}"/>
+                        <TextBlock x:Name="txtblkCheckNewWeight" Text="未统计" Style="{StaticResource txtblkDataStyle}" Width="45" MouseDown="TxtblkDoneWeight_MouseDown"/>
+                        <TextBlock Text="普通审核权值：" Style="{StaticResource txtblkHeaderStyle}"/>
+                        <TextBlock x:Name="txtblkNormalCheckWeight" Text="未统计" Style="{StaticResource txtblkDataStyle}" Width="45" MouseDown="TxtblkDoneWeight_MouseDown"/>
+
+                    </WrapPanel>
+                    <WrapPanel Style="{StaticResource wpStyle }">
+                        <TextBlock Text="开案量：" Style="{StaticResource txtblkHeaderStyle}"/>
+                        <TextBlock x:Name="txtblkNumofEntrusted" Text="{Binding Path=NumofEntrusted}" Style="{StaticResource txtblkDataStyle}" MouseDown="TxtblkNumofEntrusted_MouseDown"/>
+                    </WrapPanel>
+                    
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+        <!--<ListView x:Name="detail" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="经手数量" DisplayMemberBinding="{Binding Path=NumofHandled}"></GridViewColumn>
+                    <GridViewColumn Header="经手超期数量" DisplayMemberBinding="{Binding Path=NumofExceedlimit}" Width="80"></GridViewColumn>
+                    <GridViewColumn Header="超期天数" DisplayMemberBinding="{Binding Path=DaysofExceedlimit}" Width="120"></GridViewColumn>
+                    <GridViewColumn Header="初稿总权值" DisplayMemberBinding="{Binding Path=FirstVirsionWeight}"></GridViewColumn>
+                    <GridViewColumn Header="OA初稿数量" DisplayMemberBinding="{Binding Path=NumofDoneOA}"></GridViewColumn>
+                    <GridViewColumn Header="完成分" DisplayMemberBinding="{Binding Path=ApplicationID}"></GridViewColumn>
+                    <GridViewColumn Header="起始日期" DisplayMemberBinding="{Binding Path=StartDate, StringFormat={}{0:yyyy-MM-dd}}"></GridViewColumn>
+                    <GridViewColumn Header="终止日期" DisplayMemberBinding="{Binding Path=EndDate, StringFormat={}{0:yyyy-MM-dd}}"></GridViewColumn>
+
+                </GridView>
+            </ListView.View>
+
+        </ListView>-->
+        <DataGrid x:Name="dgDetail" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="姓名" Width="50" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="经手数量" Width="60" Binding="{Binding NumofHandled}"/>
+                <DataGridTextColumn Header="经手超期数量" Width="85" Binding="{Binding NumofExceedlimit}"/>
+                <DataGridTextColumn Header="超期率" Width="60" Binding="{Binding PercentofExceed, StringFormat={}{0:0.0%}}" />
+                <DataGridTextColumn Header="超期天数" Width="80" Binding="{Binding DaysofExceedlimit}"/>
+                <DataGridTextColumn Header="初稿总权值" Width="80" Binding="{Binding FirstVirsionWeight}"/>
+                <DataGridTextColumn Header="OA初稿数量" Width="80" Binding="{Binding NumofDoneOA}"/>
+                <DataGridTextColumn Header="完成分" Width="80" Binding="{Binding NumofDoneOA}"/>
+                <DataGridTextColumn Header="开案量" Width="60" Binding="{Binding NumofEntrusted}"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

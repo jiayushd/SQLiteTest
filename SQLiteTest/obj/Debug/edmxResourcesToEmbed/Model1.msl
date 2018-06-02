@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="mainModelStoreContainer" CdmEntityContainer="mainEntities">
+    <EntitySetMapping Name="staffs">
+      <EntityTypeMapping TypeName="mainModel.staff">
+        <MappingFragment StoreEntitySet="staff">
+          <ScalarProperty Name="职业经历" ColumnName="职业经历" />
+          <ScalarProperty Name="入职时间" ColumnName="入职时间" />
+          <ScalarProperty Name="在职状态" ColumnName="在职状态" />
+          <ScalarProperty Name="组别" ColumnName="组别" />
+          <ScalarProperty Name="部门" ColumnName="部门" />
+          <ScalarProperty Name="分公司" ColumnName="分公司" />
+          <ScalarProperty Name="邮箱" ColumnName="邮箱" />
+          <ScalarProperty Name="电话" ColumnName="电话" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="ProfessionDate" ColumnName="ProfessionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cases">
+      <EntityTypeMapping TypeName="mainModel.Case">
+        <MappingFragment StoreEntitySet="Cases">
+          <ScalarProperty Name="SuitFlag" ColumnName="SuitFlag" />
+          <ScalarProperty Name="ApplicationDate" ColumnName="ApplicationDate" />
+          <ScalarProperty Name="ApplicationStatus" ColumnName="ApplicationStatus" />
+          <ScalarProperty Name="ApplicationType" ColumnName="ApplicationType" />
+          <ScalarProperty Name="ExtraInfo" ColumnName="ExtraInfo" />
+          <ScalarProperty Name="CasedocumentName" ColumnName="CasedocumentName" />
+          <ScalarProperty Name="TechdocumentName" ColumnName="TechdocumentName" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="SalesmanName" ColumnName="SalesmanName" />
+          <ScalarProperty Name="EntrustDate" ColumnName="EntrustDate" />
+          <ScalarProperty Name="ApplicationNum" ColumnName="ApplicationNum" />
+          <ScalarProperty Name="ClientSerialNum" ColumnName="ClientSerialNum" />
+          <ScalarProperty Name="AttorneySerialNum" ColumnName="AttorneySerialNum" />
+          <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tasks">
+      <EntityTypeMapping TypeName="mainModel.Task">
+        <MappingFragment StoreEntitySet="Tasks">
+          <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+          <ScalarProperty Name="TaskStatus" ColumnName="TaskStatus" />
+          <ScalarProperty Name="ProcessStage" ColumnName="ProcessStage" />
+          <ScalarProperty Name="DoneDate" ColumnName="DoneDate" />
+          <ScalarProperty Name="OfficalDeadline" ColumnName="OfficalDeadline" />
+          <ScalarProperty Name="DoneDeadlineOutside" ColumnName="DoneDeadlineOutside" />
+          <ScalarProperty Name="DoneDeadlineInternal" ColumnName="DoneDeadlineInternal" />
+          <ScalarProperty Name="FirstVirsionDate" ColumnName="FirstVirsionDate" />
+          <ScalarProperty Name="FirstVirsionDeadlineOutside" ColumnName="FirstVirsionDeadlineOutside" />
+          <ScalarProperty Name="FirstVirsionDeadlineInternal" ColumnName="FirstVirsionDeadlineInternal" />
+          <ScalarProperty Name="DistributeDate" ColumnName="DistributeDate" />
+          <ScalarProperty Name="Attorney" ColumnName="Attorney" />
+          <ScalarProperty Name="TaskCatogry" ColumnName="TaskCatogry" />
+          <ScalarProperty Name="TaskAttribute" ColumnName="TaskAttribute" />
+          <ScalarProperty Name="TaskName" ColumnName="TaskName" />
+          <ScalarProperty Name="TaskID" ColumnName="TaskID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,47 @@
+﻿<Window x:Class="SQLiteTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SQLiteTest"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="906.981">
+    <Grid>
+        <DataGrid x:Name="dgStaff" HorizontalAlignment="Left" Height="265" Margin="458,10,0,0" VerticalAlignment="Top" Width="431" AutoGenerateColumns="False" SelectionChanged="dgStaff_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn  Header="姓名" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="系统账号" Binding="{Binding Account}"/>
+                <DataGridTextColumn Header="入职时间" Binding="{Binding ProfessionDate}"/>
+                <DataGridTextColumn Header="电话" Binding="{Binding 电话}"/>
+                <DataGridTextColumn Header="邮箱" Binding="{Binding 邮箱}"/>
+                <DataGridTextColumn Header="分公司" Binding="{Binding 分公司}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="dgTasks" HorizontalAlignment="Left" Height="265" Margin="10,10,0,0" VerticalAlignment="Top" Width="443" AutoGenerateColumns="False" SelectionChanged="dgStaff_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn  Header="姓名" Binding="{Binding Attorney}"/>
+                <DataGridTextColumn Header="任务名称" Binding="{Binding TaskName}"/>
+                <DataGridTextColumn Header="任务标识" Binding="{Binding TaskCatogry}"/>
+                <DataGridTextColumn Header="任务属性" Binding="{Binding TaskAttribute}"/>
+                <DataGridTextColumn Header="代理人处理状态" Binding="{Binding ProcessStage}"/>
+                <DataGridTextColumn Header="初稿日" Binding="{Binding FirstVirsionDate}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="获取" HorizontalAlignment="Left" Margin="10,291,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button x:Name="btnGetTaskList" Content="获取任务列表" HorizontalAlignment="Left" Margin="255,291,0,0" VerticalAlignment="Top" Width="75" Click="BtnGetTaskList_Click"/>
+
+        <TextBox x:Name="txtbxAccount" HorizontalAlignment="Left" Height="23" Margin="224,346,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtbxName" HorizontalAlignment="Left" Height="23" Margin="10,346,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="10,331,0,0" TextWrapping="Wrap" Text="姓名" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="224,331,0,0" TextWrapping="Wrap" Text="系统账号" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="430,331,0,0" TextWrapping="Wrap" Text="入职时间" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dpkProfesstionDate" HorizontalAlignment="Left" Margin="430,345,0,0" VerticalAlignment="Top"/>
+        <Button Content="新增" HorizontalAlignment="Left" Margin="629,347,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <TextBox x:Name="txtbxTel" HorizontalAlignment="Left" Height="23" Margin="10,389,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="10,374,0,0" TextWrapping="Wrap" Text="电话" VerticalAlignment="Top"/>
+        <Button Content="保存" HorizontalAlignment="Left" Margin="224,389,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+        <Button Content="代理人信息" HorizontalAlignment="Left" Margin="132,291,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
+        <Button x:Name="btnAttorneyIndex" Content="代理人指标" HorizontalAlignment="Left" Margin="369,291,0,0" VerticalAlignment="Top" Width="75" Click="BtnAttorneyIndex_Click"/>
+
+    </Grid>
+</Window>
